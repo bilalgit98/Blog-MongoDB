@@ -1,10 +1,14 @@
 const express = require("express");
+const articleRouter = require("./routes/articles");
 const app = express();
 
 const PORT = 5000;
 
 //setting up view engine to render html
 app.set("view engine", "ejs");
+
+//using the articleRouter
+app.use("/articles", articleRouter);
 
 //setting up get request on the root
 app.get("/", (req, res) => {
