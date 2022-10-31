@@ -14,7 +14,9 @@ app.use("/articles", articleRouter);
 app.get("/", (req, res) => {
   //we use render instead of send.
   // we set the path to the index file
-  res.render("index");
+  //we pass the articles from the server to the index file.
+  const articles = [{}];
+  res.render("index", { articles: "hello" });
 });
 
 app.listen(PORT, console.log("Server has started on Port 5000"));
