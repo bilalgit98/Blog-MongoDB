@@ -21,7 +21,13 @@
 
       <!--Creating the Article Cards-->
       <% article.forEach(article =>{ %>
-      <div class="card mt-4"><%= article.title%></div>
+      <div class="card mt-4">
+        <h4 class="card-title"><%= article.title%></h4>
+        <div class="card-subtitie text-muted mb-2">
+          <%= article.dateCreated%>
+        </div>
+      </div>
+
       <% }) %>
     </div>
   </body>
