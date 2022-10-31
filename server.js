@@ -18,12 +18,12 @@ app.get("/", (req, res) => {
   const articles = [
     {
       title: "test",
-      dateCreated: 20 / 12 / 2022,
+      dateCreated: new Date(),
       description: "this is a description",
     },
     {
       title: "test2",
-      dateCreated: 21 / 11 / 2022,
+      dateCreated: new Date(),
       description: "this is a description 2",
     },
   ];
