@@ -4,9 +4,11 @@ const express = require("express");
 const router = express.Router();
 
 //creating a get route
-router.get("/", (req, res) => {
-  res.send("hello");
+router.get("/new", (req, res) => {
+  res.render("articles/new");
 });
+
+router.post("/", (req, res) => {});
 
 //exporting the routes
 module.exports = router;
