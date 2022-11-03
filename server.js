@@ -11,11 +11,11 @@ mongooese.connect("mongodb://localhost/blog");
 //setting up view engine to render html
 app.set("view engine", "ejs");
 
-//using the articleRouter
-app.use("/articles", articleRouter);
-
 //using middleware
 app.use(express.urlencoded({ extended: false }));
+
+//using the articleRouter
+app.use("/articles", articleRouter);
 
 //setting up get request on the root
 app.get("/", (req, res) => {
