@@ -17,16 +17,19 @@
     name="description"
     id="description"
     placeholder="Enter Description"
+    value="<%= article.description %>"
     class="form-control"
   ></textarea>
 </div>
 
 <div class="form-group">
-  <label for="Markdown"> Markdown</label>
+  <label for="markdown"> Markdown</label>
   <textarea
-    name="Markdown"
-    id="Markdown"
+    required
+    name="markdown"
+    id="markdown"
     placeholder="Enter Markdown"
+    value="<%= article.markdown %>"
     class="form-control"
   ></textarea>
 </div>

@@ -8,14 +8,16 @@ const router = express.Router();
 
 //creating a get route
 router.get("/new", (req, res) => {
-  res.render("articles/new");
+  res.render("articles/new", { article: new Article() });
 });
 
-router.get("/id", (req, res) => {});
+router.get("/:id", (req, res) => {
+  res.send(req.params.id);
+});
 
 //route for submiting a form
 router.post("/", async (req, res) => {
-  const article = new Article({
+  let article = new Article({
     title: req.body.title,
     description: req.body.description,
     markdown: req.body.markdown,
@@ -26,7 +28,10 @@ router.post("/", async (req, res) => {
     //it will use the route ('/id')
     res.redirect(`/articles/${article.id}`);
   } catch (error) {
-    res.render("articles/new", { article });
+    res.render("articles/new", { article: article });
+
+    //logging our errors
+    console.log(error);
   }
 });
 
