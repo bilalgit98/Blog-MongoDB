@@ -11,8 +11,15 @@ router.get("/new", (req, res) => {
   res.render("articles/new", { article: new Article() });
 });
 
-router.get("/:id", (req, res) => {
-  res.send(req.params.id);
+router.get("/:id", async (req, res) => {
+  //finding articles by id
+  const article = await Article.findById(req.params.id);
+  //if statement to see if the article exists or not.
+  if (article === null) {
+    res.redirect("/");
+  }
+  //rendering out our new page
+  res.render("articles/show", { article: article });
 });
 
 //route for submiting a form
