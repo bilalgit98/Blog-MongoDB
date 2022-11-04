@@ -22,11 +22,16 @@
       <!--Creating the Article Cards-->
       <% article.forEach(article =>{ %>
       <div class="card mt-4">
-        <h4 class="card-title"><%= article.title%></h4>
-        <div class="card-subtitie text-muted mb-2">
-          <%= article.dateCreated.toLocaleDateString()%>
+        <div class="card-body">
+          <h4 class="card-title"><%= article.title%></h4>
+          <div class="card-subtitie text-muted mb-2">
+            <%= article.dateCreated.toLocaleDateString()%>
+          </div>
+          <div class="card-text mb-2"><%= article.description %></div>
+          <a href="articles/<%= article.id %>" class="btn btn-primary"
+            >Read This Article
+          </a>
         </div>
-        <div class="card-text mb-2"><%= article.description %></div>
       </div>
 
       <% }) %>
