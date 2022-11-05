@@ -44,5 +44,11 @@ router.post("/", async (req, res) => {
   }
 });
 
+//creating the delete route
+router.delete(":id", async (req, res) => {
+  await Article.findByIdAndDelete(req.params.id);
+  res.redirect("/");
+});
+
 //exporting the routes
 module.exports = router;

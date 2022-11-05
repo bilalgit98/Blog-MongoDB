@@ -4,7 +4,7 @@ const mongooese = require("mongoose");
 const Article = require("./model/article");
 const articleRouter = require("./routes/articles");
 const app = express();
-
+const methodOverride = require("method-override");
 const PORT = 5000;
 
 //connecting to the database (MongoDB)
@@ -15,6 +15,9 @@ app.set("view engine", "ejs");
 
 //using middleware
 app.use(express.urlencoded({ extended: false }));
+
+//using method-override
+app.use(methodOverride("_method"));
 
 //using the articleRouter
 app.use("/articles", articleRouter);
