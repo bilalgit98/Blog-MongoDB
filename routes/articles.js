@@ -11,9 +11,11 @@ router.get("/new", (req, res) => {
   res.render("articles/new", { article: new Article() });
 });
 
-router.get("/:id", async (req, res) => {
-  //finding articles by id
-  const article = await Article.findById(req.params.id);
+router.get("/:slug", async (req, res) => {
+  //finding articles by slug
+  //we have to do "findOne" instead of find, because find will return an array.
+
+  const article = await Article.findOne({ slug: req.params.slug });
   //if statement to see if the article exists or not.
   if (article === null) {
     res.redirect("/");
@@ -33,7 +35,7 @@ router.post("/", async (req, res) => {
     article = await article.save();
     //we are redirecting to the user.
     //it will use the route ('/id')
-    res.redirect(`/articles/${article.id}`);
+    res.redirect(`/articles/${article.slug}`);
   } catch (error) {
     res.render("articles/new", { article: article });
 
