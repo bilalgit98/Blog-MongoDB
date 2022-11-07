@@ -2,9 +2,11 @@ const express = require("express");
 const mongooese = require("mongoose");
 //article model
 const Article = require("./model/article");
+
+const methodOverride = require("method-override");
+
 const articleRouter = require("./routes/articles");
 const app = express();
-const methodOverride = require("method-override");
 const PORT = 5000;
 
 //connecting to the database (MongoDB)

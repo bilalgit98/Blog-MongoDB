@@ -31,6 +31,17 @@
           <a href="articles/<%= article.slug %>" class="btn btn-primary"
             >Read This Article
           </a>
+
+          <!-- DELETE FORM-->
+          <form
+            action="/articles/<%= article.id %>?_method=DELETE"
+            method="POST"
+            class="d-inline"
+          >
+            <button type="submit" class="btn btn-danger">
+              DELETE ARTICLE!
+            </button>
+          </form>
         </div>
       </div>
 
